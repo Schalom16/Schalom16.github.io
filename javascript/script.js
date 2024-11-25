@@ -61,3 +61,54 @@ function resetBoard() {
 })();
 
 cards.forEach(card => card.addEventListener('click', flipCard));
+
+/***********************code ben**************************/
+
+/****************************/
+/*declaration des constantes*/
+/****************************/
+const maBoite=document.getElementById("dialogue");
+
+
+
+
+
+
+
+
+
+/******************************/
+/*declaration des evenements**/
+/****************************/
+window.addEventListener('load',AfficheDialogue);
+
+
+
+
+
+
+
+
+
+
+
+/******************************/
+/*****code intermédiaire******/
+/****************************/
+
+
+
+
+
+
+
+
+
+
+/************************************/
+/*****déclaration des fonctions*****/
+/**********************************/
+function AfficheDialogue()
+{
+    maBoite.showModal();
+}

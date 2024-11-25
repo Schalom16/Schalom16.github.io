@@ -53,3 +53,25 @@
   .front-face {
     transform: rotateY(180deg);
   }
+
+
+  /****************Code ben**************/
+  #dialogue
+  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(93, 188, 251, 0.5);
+  }
+
+  #formulaire
+  {
+    border-color: #1C7CCC;
+    border-radius: 20px;
+    padding:50px;
+    width: 25%;
+    height: 35%;
+    background-color: white;
+  }
