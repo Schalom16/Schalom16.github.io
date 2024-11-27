@@ -11,11 +11,31 @@
 
     <dialog id="dialogue">
         <form method="dialog" id="formulaire">
-            <div id="entete">
-                Projet personnel
-               
+            <div id="entete" class="boite_dialogue">
+              <p id="titre">Projet personnel</p>
+              <hr id="tiret">
+              <p id="sous-titre" class="italic">Design web gr.2 Automne 2024</p>
             </div>
-        </form>
+            <div id="contenu" class="boite_dialogue">
+              <div id="contenu1">
+                <div id="texte1">
+                  <p id="auteur" class="titre1">Réaliser par: </p>
+                  <p id="nom_auteur" class="italic">Ben Schalom, KAMGA</p>
+                </div>
+                <div id="texte2">
+                  <p id="inspiration" class="titre1">Inspiration: </p>
+                  <p  class="italic"><a id="lien" href="https://marina-ferreira.github.io/memory-gam">https://marina-ferreira.github.io/memory-game/</a></p>
+                </div>
+              </div>
+              <div id="contenu2">
+                <img id="image" src="./img/megaman.png" alt="image megaman">
+              </div>
+            </div>
+            <div id="bas" class="boite_dialogue">
+              <buttton autofocus id="ferme_dialogue">Fermer la fenêtre</buttton>
+              <p class="italic"> Ne plus afficher cette fenêtre</p>
+            </div>
+          </form>
     </dialog>
 
   <section class="memory-game">

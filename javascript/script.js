@@ -68,7 +68,7 @@ cards.forEach(card => card.addEventListener('click', flipCard));
 /*declaration des constantes*/
 /****************************/
 const maBoite=document.getElementById("dialogue");
-
+const bouton_fermeDialogue=document.getElementById("ferme_dialogue");
 
 
 
@@ -81,7 +81,7 @@ const maBoite=document.getElementById("dialogue");
 /*declaration des evenements**/
 /****************************/
 window.addEventListener('load',AfficheDialogue);
-
+bouton_fermeDialogue.addEventListener("click",Fermeture);
 
 
 
@@ -111,4 +111,8 @@ window.addEventListener('load',AfficheDialogue);
 function AfficheDialogue()
 {
     maBoite.showModal();
+}
+
+function Fermeture(){
+  maBoite.close();
 }

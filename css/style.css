@@ -56,22 +56,108 @@
 
 
   /****************Code ben**************/
-  #dialogue
+  #dialogue[open]
   {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(93, 188, 251, 0.5);
+    background-color: rgba(182, 232, 232, 0.5);
   }
+
 
   #formulaire
   {
     border-color: #1C7CCC;
     border-radius: 20px;
-    padding:50px;
-    width: 25%;
-    height: 35%;
+    padding-top:50px;
+    padding-bottom: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    width: fit-content;
+    height: fit-content;
     background-color: white;
+    display: grid;
+    grid-template-rows: repeat(3, fit-content);
+    grid-template-areas: 
+    "item1"
+    "item2"
+    "item3";
+    gap:10px
+  }
+
+  .boite_dialogue{
+    place-items: center;
+  }
+
+  #entete{
+    grid-area: item1;
+    display: grid;
+    gap:10px;
+
+  }
+
+  #contenu{
+    grid-area: item2;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #contenu2{
+    margin-left: 80px;
+  }
+  #bas{
+    grid-area: item3;
+  }
+
+  #tiret{
+    width: 80%;
+    border-color: rgb(14, 170, 243);
+  }
+
+  #titre{
+    font-weight: bold;
+    font-size: 50px;
+  }
+
+  .titre1{
+    font-weight: bold;
+    font-size: 28px;
+  }
+
+  #texte2{
+    padding-top: 10px;
+  }
+
+  .italic{
+    font-style: italic;
+    font-size: 20px;
+  
+  }
+
+  #ferme_dialogue{
+    display: grid;
+    gap:20px;
+    background-color: #1C7CCC;
+    color: white;
+    font-size: 25px;
+    padding: 15px;
+    border-radius: 10px;
+    width: 290px;
+    text-align: center;
+  }
+
+  #lien{
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(14, 170, 243);
+  }
+
+  #nom_auteur, #lien{
+    font-size: 20px;
+  }
+
+  #image{
+    height: 250px;
   }
