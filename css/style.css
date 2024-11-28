@@ -161,3 +161,7 @@
   #image{
     height: 250px;
   }
+
+  #fermerPourToujours:hover{
+    cursor: pointer;
+  }

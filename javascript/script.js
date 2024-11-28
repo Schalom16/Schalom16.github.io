@@ -69,7 +69,7 @@ cards.forEach(card => card.addEventListener('click', flipCard));
 /****************************/
 const maBoite=document.getElementById("dialogue");
 const bouton_fermeDialogue=document.getElementById("ferme_dialogue");
-
+const fermerToujours=document.getElementById("fermerPourToujours");
 
 
 
@@ -80,9 +80,9 @@ const bouton_fermeDialogue=document.getElementById("ferme_dialogue");
 /******************************/
 /*declaration des evenements**/
 /****************************/
-window.addEventListener('load',AfficheDialogue);
+window.addEventListener('load',Affichage_boite_dialogue);
 bouton_fermeDialogue.addEventListener("click",Fermeture);
-
+fermerToujours.addEventListener("click",NePlusAfficher);
 
 
 
@@ -115,4 +115,20 @@ function AfficheDialogue()
 
 function Fermeture(){
   maBoite.close();
+}
+
+function Affichage_boite_dialogue()
+{
+  if(localStorage.getItem('nePlusAfficher'))
+  {
+    maBoite.style.display="none";
+  }
+  else{
+    AfficheDialogue();
+  }
+}
+
+function NePlusAfficher(){
+  localStorage.setItem('nePlusAfficher','true');
+  Fermeture();
 }
