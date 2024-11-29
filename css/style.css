@@ -7,20 +7,40 @@
   body {
     height: 100vh;
     display: flex;
-    background: #060AB2;
+    background: #e0b5bf;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   
+  #horloge{
+    height: fit-content;
+    width: 200px;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    font-size: 2.2em;
+    border-radius: 10px;
+    background-color: rgb(216, 234, 243);
+    font-weight: bold;
+  }
+
+
+  #chrono_seconde, #chrono_minute{
+    width:fit-content;
+  }
   .memory-game {
     width: 640px;
     height: 640px;
-    margin: auto;
+    margin-top: 75px;
     display: flex;
     flex-wrap: wrap;
     perspective: 1000px;
   }
   
   .memory-card {
-    width: calc(25% - 10px);
+    /*width: calc(25% - 10px);*/
+    width: 200px;
     height: calc(33.333% - 10px);
     margin: 5px;
     position: relative;
@@ -28,6 +48,7 @@
     transform-style: preserve-3d;
     transition: transform .5s;
     box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+    border-radius: 20px;
   }
   
   .memory-card:active {
@@ -43,7 +64,7 @@
   .back-face {
     width: 100%;
     height: 100%;
-    padding: 20px;
+    padding: 0px;
     position: absolute;
     border-radius: 5px;
     background: #1C7CCC;

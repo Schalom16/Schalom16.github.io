@@ -43,9 +43,9 @@ function unflipCards() {
   setTimeout(() => {
     firstCard.classList.remove('flip');
     secondCard.classList.remove('flip');
-
     resetBoard();
   }, 1500);
+
 }
 
 function resetBoard() {
@@ -70,9 +70,10 @@ cards.forEach(card => card.addEventListener('click', flipCard));
 const maBoite=document.getElementById("dialogue");
 const bouton_fermeDialogue=document.getElementById("ferme_dialogue");
 const fermerToujours=document.getElementById("fermerPourToujours");
-
-
-
+const minute=document.getElementById('chrono_minute');
+const seconde=document.getElementById('chrono_seconde');
+let intervalID;
+let compteur=0; //utiliser dasns une fonction plus haut pour savoir si toutes les cartes ont été checké
 
 
 
@@ -83,7 +84,8 @@ const fermerToujours=document.getElementById("fermerPourToujours");
 window.addEventListener('load',Affichage_boite_dialogue);
 bouton_fermeDialogue.addEventListener("click",Fermeture);
 fermerToujours.addEventListener("click",NePlusAfficher);
-
+bouton_fermeDialogue.addEventListener("click",play);
+fermerToujours.addEventListener("click",play);
 
 
 
@@ -131,4 +133,45 @@ function Affichage_boite_dialogue()
 function NePlusAfficher(){
   localStorage.setItem('nePlusAfficher','true');
   Fermeture();
+  play();
+}
+
+function chrono(){
+  let sec=seconde.textContent;
+  let min=minute.textContent;
+  sec=parseInt(sec);
+  sec=sec+1;
+  if(sec==60){
+    min=parseInt(min);
+    min=min+1;
+    sec=0;
+    if(min<10){
+      minute.innerText="0"+min;
+    }
+    else{
+      minute.innerText=min;
+    }
+   
+  }
+
+  if(sec<10){
+    seconde.innerText="0"+sec;
+  }
+  else{
+    seconde.innerText=sec
+  }
+}
+
+function play(){
+
+  if(!intervalID)
+  {
+    setInterval(chrono,1000);
+  }
+  
+}
+
+function stopChrono(){
+  clearInterval(intervalID);
+  intervalID=null;
 }
