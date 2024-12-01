@@ -9,11 +9,12 @@
     display: flex;
     background: #e0b5bf;
     flex-direction: column;
-    justify-content: center;
+   
     align-items: center;
   }
   
   #horloge{
+    margin-top: 10px;
     height: fit-content;
     width: 200px;
     justify-content: center;
@@ -32,7 +33,7 @@
   .memory-game {
     width: 640px;
     height: 640px;
-    margin-top: 75px;
+    margin-top: 30px;
     display: flex;
     flex-wrap: wrap;
     perspective: 1000px;
@@ -185,4 +186,88 @@
 
   #fermerPourToujours:hover{
     cursor: pointer;
+  }
+
+  #boutons{
+    margin-top: 10px;
+    display: flex;
+    width: 420px;
+    justify-content: space-between;
+  }
+  #score{
+    width: 150px;
+    border-radius: 10px;
+    padding: 10px;
+    height: 35px;
+    margin-top: 10px;
+    background-color:red;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+    opacity: 0;
+  }
+
+  .apparition{
+    animation: score 8s forwards;
+  }
+  .btn{
+    height: 40px;
+    width: 200px;
+    border-radius: 10px;
+    border: none;
+    font-size: 1.5em;
+  }
+  #rejouer:hover{
+    animation: fillBoxRejouer 3s forwards;
+  }
+  #pause:hover{
+    animation: fillBoxPause 3s forwards;
+  }
+
+  @keyframes fillBoxRejouer { 
+    0% {
+       background-color: rgb(192, 206, 251); 
+      } 
+    25% {
+        background-color: rgb(128, 156, 250); 
+      } 
+    50% {
+        background-color: rgb(71, 114, 253); 
+      } 
+    75% {
+        background-color: rgb(41, 90, 248); 
+      } 
+    100% {
+        background-color: rgb(5, 61, 245); 
+      } 
+  }
+
+  @keyframes fillBoxPause { 
+    0% {
+       background-color: rgb(251, 192, 192); 
+      } 
+    25% {
+        background-color: rgb(252, 89, 89); 
+      } 
+    50% {
+        background-color: rgb(252, 48, 48); 
+      } 
+    75% {
+        background-color: rgb(255, 26, 34); 
+      } 
+    100% {
+        background-color: rgb(254, 9, 9); 
+      } 
+  }
+
+  @keyframes score{
+    0%{
+      opacity:0;
+    }
+    50%{
+      opacity: 0.5;
+    }
+    100%{
+      opacity: 1;
+    }
   }

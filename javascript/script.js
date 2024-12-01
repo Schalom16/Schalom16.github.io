@@ -3,6 +3,9 @@ const cards = document.querySelectorAll('.memory-card');
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
+let comp=0; //pour compter le nombre de paire de carte bloquer
+let tableauTemps=[];//liste des temps
+
 
 function flipCard() {
   if (lockBoard) return;
@@ -31,10 +34,21 @@ function checkForMatch() {
 }
 
 function disableCards() {
+  comp=comp+1;
   firstCard.removeEventListener('click', flipCard);
   secondCard.removeEventListener('click', flipCard);
 
   resetBoard();
+  if(comp==6){
+    stopChrono();
+    let sec=seconde.textContent;
+    let min=minute.textContent;
+    let temp=min;
+    temp+=sec;
+    tableauTemps=JSON.parse(localStorage.getItem("Temps"));
+    tableauTemps.push(temp);
+    localStorage.setItem("Temps", JSON.stringify(tableauTemps));
+  }
 }
 
 function unflipCards() {
@@ -73,9 +87,9 @@ const fermerToujours=document.getElementById("fermerPourToujours");
 const minute=document.getElementById('chrono_minute');
 const seconde=document.getElementById('chrono_seconde');
 let intervalID;
-let compteur=0; //utiliser dasns une fonction plus haut pour savoir si toutes les cartes ont été checké
-
-
+const rejouer=document.getElementById("rejouer");
+const score=document.getElementById("score");
+const btn_score=document.getElementById("pause");
 
 
 /******************************/
@@ -86,8 +100,8 @@ bouton_fermeDialogue.addEventListener("click",Fermeture);
 fermerToujours.addEventListener("click",NePlusAfficher);
 bouton_fermeDialogue.addEventListener("click",play);
 fermerToujours.addEventListener("click",play);
-
-
+rejouer.addEventListener("click",Rejouer);
+btn_score.addEventListener("click",Score);
 
 
 
@@ -121,9 +135,11 @@ function Fermeture(){
 
 function Affichage_boite_dialogue()
 {
+  
   if(localStorage.getItem('nePlusAfficher'))
   {
     maBoite.style.display="none";
+    play();
   }
   else{
     AfficheDialogue();
@@ -166,7 +182,7 @@ function play(){
 
   if(!intervalID)
   {
-    setInterval(chrono,1000);
+    intervalID=setInterval(chrono,1000);
   }
   
 }
@@ -174,4 +190,50 @@ function play(){
 function stopChrono(){
   clearInterval(intervalID);
   intervalID=null;
+}
+
+function Rejouer(){
+  location.reload();
+}
+
+function Score()
+{
+  let temporel;
+  let temporel2;
+  let swap;
+  let tableauTemps=JSON.parse(localStorage.getItem("Temps"));
+  for(let i=0; i<tableauTemps.length; i++)
+  {
+    tableauTemps[i]=parseInt(tableauTemps[i]);
+  }
+
+  for(let i=0; i<tableauTemps.length; i++){
+    for(let j=1; j<tableauTemps.length;j++){
+        if(tableauTemps[i]>tableauTemps[j]){
+          swap=tableauTemps[i];
+          tableauTemps[i]=tableauTemps[j];
+          tableauTemps[j]=swap;
+        }
+    }
+  }
+
+  temporel=tableauTemps[0];
+  if(temporel<100){
+    temporel.toString();
+    temporel2="00"+temporel;
+  }
+  else if(temporel<1000){
+    temporel.toString();
+    temporel2="0"+temporel;
+  }
+  else{
+    temporel2=temporel.toString();
+  }
+  let minute_part=temporel2.substring(0, 2);
+  let seconde_part=temporel2.substring(2,4);
+  score.innerText=minute_part;
+  score.innerText+=":";
+  score.innerText+=seconde_part;
+
+  score.classList.add("apparition");
 }
