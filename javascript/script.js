@@ -90,12 +90,13 @@ let intervalID;
 const rejouer=document.getElementById("rejouer");
 const score=document.getElementById("score");
 const btn_score=document.getElementById("pause");
-
+const snowflakes = document.querySelector('.snowflakes');
 
 /******************************/
 /*declaration des evenements**/
 /****************************/
 window.addEventListener('load',Affichage_boite_dialogue);
+window.addEventListener('load',neige);
 bouton_fermeDialogue.addEventListener("click",Fermeture);
 fermerToujours.addEventListener("click",NePlusAfficher);
 bouton_fermeDialogue.addEventListener("click",play);
@@ -143,6 +144,9 @@ function Affichage_boite_dialogue()
   }
   else{
     AfficheDialogue();
+  }
+  if(!localStorage.getItem('Temps')){
+    localStorage.setItem('Temps',JSON.stringify([10000000000]));
   }
 }
 
@@ -236,4 +240,18 @@ function Score()
   score.innerText+=seconde_part;
 
   score.classList.add("apparition");
+}
+
+//creation des flocons de neige
+function neige(){
+  for (let i = 0; i < 50; i++) {
+    let snowflake = document.createElement('div');
+    snowflake.classList.add('snowflake');
+    snowflake.textContent = ['❅', '❆', '❄'][Math.floor(Math.random() * 3)];
+    snowflake.style.left = `${Math.random() * 100}%`;
+    snowflake.style.animationDelay = `${Math.random() * 10}s`;
+    snowflake.style.fontSize = `${Math.random() * 24 + 12}px`;
+    snowflake.style.opacity = Math.random();
+    snowflakes.appendChild(snowflake);
+}
 }
