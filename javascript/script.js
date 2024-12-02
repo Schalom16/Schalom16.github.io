@@ -5,7 +5,7 @@ let lockBoard = false;
 let firstCard, secondCard;
 let comp=0; //pour compter le nombre de paire de carte bloquer
 let tableauTemps=[];//liste des temps
-
+const gagne=document.getElementById("baniere");
 
 function flipCard() {
   if (lockBoard) return;
@@ -41,6 +41,7 @@ function disableCards() {
   resetBoard();
   if(comp==6){
     stopChrono();
+    gagne.classList.add("animer");
     let sec=seconde.textContent;
     let min=minute.textContent;
     let temp=min;

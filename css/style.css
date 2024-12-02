@@ -265,6 +265,28 @@
     animation-iteration-count: infinite, infinite;
   }
 
+  #baniere{
+    margin-top: 200px;
+    position:absolute;
+    left: -100vw;
+    z-index: 9999;
+    background-color: rgba(0, 0, 255, 0.5);
+    width: 100vw;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15em;
+    font-weight: bold;
+    color: whitesmoke;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  .animer{
+    transform: translateX(100vw);
+    transition: all 4s
+  }
+
 @keyframes snowflake-fall {
     0% {
         top: -10%;
@@ -312,3 +334,4 @@
       opacity: 1;
     }
   }
+
