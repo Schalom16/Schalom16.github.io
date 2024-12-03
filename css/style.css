@@ -33,8 +33,8 @@
     width:fit-content;
   }
   .memory-game {
-    width: 640px;
-    height: 640px;
+    width: 490px;
+    height: 450px;
     margin-top: 5px;
     display: flex;
     flex-wrap: wrap;
@@ -43,7 +43,7 @@
   
   .memory-card {
     /*width: calc(25% - 10px);*/
-    width: 200px;
+    width: 150px;
     height: calc(33.333% - 10px);
     margin: 5px;
     position: relative;
@@ -287,6 +287,7 @@
     transition: all 4s
   }
 
+  
 @keyframes snowflake-fall {
     0% {
         top: -10%;
