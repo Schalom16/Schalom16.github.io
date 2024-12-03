@@ -243,7 +243,9 @@ function Score()
   score.classList.add("apparition");
 }
 
-//creation des flocons de neige
+/**
+ * creation des flocons de neige
+ */
 function neige(){
   for (let i = 0; i < 50; i++) {
     let snowflake = document.createElement('div');
