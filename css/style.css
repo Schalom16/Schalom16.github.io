@@ -287,29 +287,7 @@
     transition: all 4s
   }
 
-  @media screen and (width <900px){
-    .memory-game {
-      width: 640px;
-      height: 500px;
-      margin-top: 5px;
-      display: flex;
-      flex-wrap: wrap;
-      perspective: 1000px;
-    }
-    
-    .memory-card {
-      /*width: calc(25% - 10px);*/
-      width: 200px;
-      height: calc(33.333% - 10px);
-      margin: 5px;
-      position: relative;
-      transform: scale(1);
-      transform-style: preserve-3d;
-      transition: transform .5s;
-      box-shadow: 1px 1px 1px rgba(0,0,0,.3);
-      border-radius: 20px;
-    }
-  }
+
 @keyframes snowflake-fall {
     0% {
         top: -10%;
